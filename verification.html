@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de Compte - Neon Promo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Utilisez la dernière version -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="security-page">
+    <!-- Ajouter en haut du <body> dans chaque page -->
+<div class="neon-loader" aria-label="Chargement en cours">
+    <div class="loader-spinner"></div>
+  </div>
+   <!-- Ajouter dans chaque page -->
+<header class="main-header">
+    <div class="header-content">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+            <i class="fas fa-bolt neon-cyan"></i>
+            <span>NeonPromo</span>
+        </a>
+
+        <!-- Navigation principale -->
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-house"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="blog.html" class="nav-link">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            <a href="odds-tracker.html" class="nav-link tracker-link">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Live</span>
+                <span class="live-pulse"></span>
+            </a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button class="mobile-menu-btn">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </button>
+    </div>
+</header>
+    <section class="hero">
+        <h1>Diagnostic de Sécurité</h1>
+        <p class="hero-subtitle">Analyse complète de la protection de votre compte</p>
+    </section>
+
+    <main class="verification-content">
+        <div class="security-overview">
+            <div class="security-score">
+                <div class="score-circle">
+                    <span class="score">85%</span>
+                    <svg class="progress-ring">
+                        <circle class="progress-ring-circle" stroke-width="4" fill="transparent" r="58" cx="60" cy="60"/>
+                    </svg>
+                </div>
+                <p class="score-label">Niveau de sécurité</p>
+            </div>
+
+            <div class="security-alerts">
+                <div class="alert-box critical">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <div>
+                        <h3>2 Alertes Critiques</h3>
+                        <p>Action requise immédiatement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="twofaModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3><i class="fas fa-qrcode"></i> Activation 2FA</h3>
+                <div class="qrcode-placeholder"></div>
+                <p>Scannez ce QR code avec Google Authenticator</p>
+                <input type="text" id="authCode" placeholder="Code à 6 chiffres">
+                <button onclick="verify2FA()" class="btn btn-neon">Vérifier</button>
+            </div>
+        </div>
+        <div class="verification-steps">
+            <!-- Étape 1 -->
+            <div class="verification-step completed">
+                <div class="step-header">
+                    <span class="step-status"></span>
+                    <h3><i class="fas fa-lock"></i> Mot de Passe Fort</h3>
+                </div>
+                <div class="step-details">
+                    <p>Votre mot de passe satisfait 4/5 critères</p>
+                    <div class="password-strength">
+                        <div class="strength-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="verification-step warning">
+                <div class="step-header">
+                    <span class="step-status"></span>
+                    <h3><i class="fas fa-mobile-alt"></i> 2FA Activé</h3>
+                </div>
+                <div class="step-details">
+                    <p>Authentification à deux facteurs non configurée</p>
+                    <button class="btn btn-neon" onclick="activate2FA()">Activer la 2FA</button>
+                </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="verification-step critical">
+                <div class="step-header">
+                    <span class="step-status"></span>
+                    <h3><i class="fas fa-shield-virus"></i> Logiciel Malveillant</h3>
+                </div>
+                <div class="step-details">
+                    <p>1 menace détectée dans votre système</p>
+                    <div class="malware-scan">
+                        <div class="scan-progress"></div>
+                        <button class="btn btn-outline" onclick="startCleanup()">Lancer le Nettoyage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Réseaux Sociaux</h4>
+                <div class="social-links">
+                    <a href="https://t.me/cgparis" class="social-link" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/groups/878539870417684/" class="social-link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.threads.net/@sunugain" class="social-link" target="_blank">
+                        <i class="fab fa-threads"></i>
+                    </a>
+                    <a href="https://twitter.com" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <ul class="footer-links">
+                    <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                    <li><a href="confidentialite.html">Confidentialité</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.htm">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:sunumarketing221@gmail.com"><i class="fas fa-envelope"></i> sunumarketing221@gmail.com</a></li>
+                    <li><a href="tel:+221766304380"><i class="fas fa-phone"></i> +221 76 630 43 80</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <form onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Votre email" required 
+                           style="width:100%; padding:0.8rem; background:rgba(255,255,255,0.1); 
+                           border:1px solid var(--neon-purple); border-radius:8px; color:white;">
+                    <button type="submit" class="btn btn-redirect" style="margin-top:1rem;">
+                        <i class="fas fa-paper-plane"></i> S'abonner
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024 Neon Promo - Tous droits réservés</p>
+            <p style="margin-top:1rem;">
+                <i class="fas fa-certificate" style="color:var(--neon-cyan);"></i>
+                Jeu responsable - 18 ans minimum
+                <i class="fas fa-certificate" style="color:var(--neon-pink);"></i>
+            </p>
+        </div><!-- Footer existant -->
+    </footer>
+         <!-- Bouton Retour en Haut -->
+         <a href="#" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    <script src="js/script.js"></script>
+</body>
+</html>

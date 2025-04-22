@@ -1,0 +1,278 @@
+<!-- Ajouter dans une nouvelle page odds-tracker.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker en Temps Réel - Neon Promo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Utilisez la dernière version -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="data-page">
+    <!-- Ajouter dans chaque page -->
+<header class="main-header">
+    <div class="header-content">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+            <i class="fas fa-bolt neon-cyan"></i>
+            <span>NeonPromo</span>
+        </a>
+
+        <!-- Navigation principale -->
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-house"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="blog.html" class="nav-link">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            <a href="odds-tracker.html" class="nav-link tracker-link">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Live</span>
+                <span class="live-pulse"></span>
+            </a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button class="mobile-menu-btn">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </button>
+    </div>
+</header>
+    <!-- Ajouter en haut du <body> dans chaque page -->
+<div class="neon-loader" aria-label="Chargement en cours">
+    <div class="loader-spinner"></div>
+  </div>
+    <a href="index.html" class="home-button" aria-label="Retour à l'accueil">
+        <i class="fas fa-house"></i>
+    </a>
+
+    <section class="hero">
+        <h1>Intelligence Temps Réel</h1>
+        <p class="hero-subtitle">Données live et prédictions IA pour vos paris</p>
+    </section>
+
+    <main class="data-content">
+        <!-- Tracker de Cotes -->
+        <section class="odds-tracker">
+            <h2><i class="fas fa-chart-line"></i> Tracker de Cotes</h2>
+            
+            <div class="tracker-tools">
+                <div class="search-filter">
+                    <input type="text" placeholder="Rechercher un événement...">
+                    <select id="sportFilter">
+                        <option>Tous sports</option>
+                        <option>Football</option>
+                        <option>Tennis</option>
+                    </select>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="bookmaker-comparison">
+                        <div class="bookmaker-odds">
+                            <div class="bookmaker-header">
+                                <span>Événement</span>
+                                <span>1xBet</span>
+                                <span>Betwinner</span>
+                                <span>Melbet</span>
+                            </div>
+                            <div class="odds-row">
+                                <span>PSG - Bayern Munich</span>
+                                <span class="odds-value">2.45</span>
+                                <span class="odds-value up">2.50</span>
+                                <span class="odds-value down">2.38</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arbitrage-alert">
+                        <i class="fas fa-bell"></i>
+                        <p>Opportunité d'arbitrage détectée sur Tennis</p>
+                        <span class="profit-badge">+3.8%</span>
+                    </div>
+                </div>
+                
+                <div class="historical-chart">
+                    <canvas id="oddsHistoryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiques Avancées -->
+        <section class="advanced-stats">
+            <h2><i class="fas fa-brain"></i> Analyse IA</h2>
+            
+            <div class="stats-grid">
+               <!-- Ajouter dans la section des statistiques avancées -->
+<div class="heatmap-container">
+    <h3><i class="fas fa-map-marked-alt"></i> Heatmap des Résultats</h3>
+    
+    <div class="heatmap-legend">
+        <div class="legend-item">
+            <span class="color-win"></span>
+            <span>Victoire</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-draw"></span>
+            <span>Nul</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-loss"></span>
+            <span>Défaite</span>
+        </div>
+    </div>
+
+    <div class="heatmap-grid">
+        <!-- Rangée d'en-tête -->
+        <div class="heatmap-header">Équipe</div>
+        <div class="heatmap-header">J1</div>
+        <div class="heatmap-header">J2</div>
+        <div class="heatmap-header">J3</div>
+        <div class="heatmap-header">J4</div>
+        <div class="heatmap-header">J5</div>
+
+        <!-- Données des équipes -->
+        <div class="team-name">PSG</div>
+        <div class="match-result win">3-1</div>
+        <div class="match-result draw">2-2</div>
+        <div class="match-result loss">0-1</div>
+        <div class="match-result win">4-0</div>
+        <div class="match-result win">2-1</div>
+
+        <div class="team-name">OM</div>
+        <div class="match-result loss">1-2</div>
+        <div class="match-result win">3-0</div>
+        <div class="match-result win">2-1</div>
+        <div class="match-result draw">1-1</div>
+        <div class="match-result loss">0-2</div>
+    </div>
+</div>
+                
+                <div class="player-performance">
+                    <h3>Forme des Joueurs</h3>
+                    <div class="player-card">
+                        <div class="player-header">
+                            <img src="player.jpg" alt="Kylian Mbappé">
+                            <div class="player-info">
+                                <h4>Kylian Mbappé</h4>
+                                <div class="performance-rating">
+                                    <i class="fas fa-star"></i> 8.9/10
+                                </div>
+                            </div>
+                        </div>
+                        <div class="performance-stats">
+                            <div class="stat-item">
+                                <span>Buts last 5 matchs</span>
+                                <div class="stat-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-prediction">
+                <h3>Prédiction IA</h3>
+                <div class="prediction-result">
+                    <div class="team-prediction">
+                        <span>PSG</span>
+                        <div class="confidence-meter" style="--confidence: 65%"></div>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="team-prediction">
+                        <span>Bayern</span>
+                        <div class="confidence-meter" style="--confidence: 35%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+      <!-- Contenu principal dynamique -->
+      <main class="tracker-main" id="mainContent">
+        <!-- Contenu généré dynamiquement par JavaScript -->
+    </main>
+
+    <!-- Overlay de chargement -->
+    <div class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner-sector spinner-top"></div>
+            <div class="spinner-sector spinner-middle"></div>
+            <div class="spinner-sector spinner-bottom"></div>
+        </div>
+    </div>
+     <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Réseaux Sociaux</h4>
+                <div class="social-links">
+                    <a href="https://t.me/cgparis" class="social-link" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/groups/878539870417684/" class="social-link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.threads.net/@sunugain" class="social-link" target="_blank">
+                        <i class="fab fa-threads"></i>
+                    </a>
+                    <a href="https://twitter.com" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <ul class="footer-links">
+                    <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                    <li><a href="confidentialite.html">Confidentialité</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.htm">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:sunumarketing221@gmail.com"><i class="fas fa-envelope"></i> sunumarketing221@gmail.com</a></li>
+                    <li><a href="tel:+221766304380"><i class="fas fa-phone"></i> +221 76 630 43 80</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <form onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Votre email" required 
+                           style="width:100%; padding:0.8rem; background:rgba(255,255,255,0.1); 
+                           border:1px solid var(--neon-purple); border-radius:8px; color:white;">
+                    <button type="submit" class="btn btn-redirect" style="margin-top:1rem;">
+                        <i class="fas fa-paper-plane"></i> S'abonner
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024 Neon Promo - Tous droits réservés</p>
+            <p style="margin-top:1rem;">
+                <i class="fas fa-certificate" style="color:var(--neon-cyan);"></i>
+                Jeu responsable - 18 ans minimum
+                <i class="fas fa-certificate" style="color:var(--neon-pink);"></i>
+            </p>
+        </div>
+     </footer>
+              <!-- Bouton Retour en Haut -->
+              <a href="#" class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

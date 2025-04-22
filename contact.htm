@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Neon Promo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Utilisez la dernière version -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="contact-page">
+    <!-- Ajouter en haut du <body> dans chaque page -->
+<div class="neon-loader" aria-label="Chargement en cours">
+    <div class="loader-spinner"></div>
+  </div>
+    <!-- Ajouter dans chaque page -->
+<header class="main-header">
+    <div class="header-content">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+            <i class="fas fa-bolt neon-cyan"></i>
+            <span>NeonPromo</span>
+        </a>
+
+        <!-- Navigation principale -->
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-house"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="blog.html" class="nav-link">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            <a href="odds-tracker.html" class="nav-link tracker-link">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Live</span>
+                <span class="live-pulse"></span>
+            </a>
+        </nav>
+
+        <!-- Menu mobile -->
+        <button class="mobile-menu-btn">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </button>
+    </div>
+</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contactez Notre Équipe</h1>
+        <p class="hero-subtitle">Une question ? Un partenariat ? Nous répondons sous 24h</p>
+    </section>
+
+    <!-- Contenu Principal -->
+    <main class="contact-content">
+        <div class="contact-grid">
+            <!-- Formulaire -->
+            <section class="contact-form">
+                <h2><i class="fas fa-paper-plane"></i> Envoyer un message</h2>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input type="email" id="email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <select id="subject" required>
+                            <option value="">Choisir...</option>
+                            <option>Support technique</option>
+                            <option>Proposition commerciale</option>
+                            <option>Demande de partenariat</option>
+                            <option>Autre</option>
+                        </select>
+                        <i class="fas fa-tag"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                        <i class="fas fa-comment"></i>
+                    </div>
+
+                    <button type="submit" class="btn btn-neon">
+                        <i class="fas fa-paper-plane"></i> Envoyer
+                    </button>
+                </form>
+            </section>
+
+            <!-- Informations -->
+            <section class="contact-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
+                    <p>Dakar, Sénégal</p>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.227774238547!2d-17.43468218554711!3d14.693078478367465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1725e8a9e1139%3A0x59defb4e0d0c144a!2sDakar!5e0!3m2!1sfr!2ssn!4v1623256789012!5m2!1sfr!2ssn" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-phone"></i> Téléphone</h3>
+                    <p>+221 76 630 43 80</p>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-at"></i> Email</h3>
+                    <p>sunumarketing221@gmail.com</p>
+                </div>
+
+                <div class="info-card social-card">
+                    <h3><i class="fas fa-hashtag"></i> Réseaux sociaux</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Réseaux Sociaux</h4>
+                    <div class="social-links">
+                        <a href="https://t.me/cgparis" class="social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/groups/878539870417684/" class="social-link" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.threads.net/@sunugain" class="social-link" target="_blank">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer-section">
+                    <h4>Informations</h4>
+                    <ul class="footer-links">
+                        <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.htm">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sunumarketing221@gmail.com"><i class="fas fa-envelope"></i> sunumarketing221@gmail.com</a></li>
+                        <li><a href="tel:+221766304380"><i class="fas fa-phone"></i> +221 76 630 43 80</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                    </ul>
+                </div>
+    
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <form onsubmit="handleNewsletter(event)">
+                        <input type="email" placeholder="Votre email" required 
+                               style="width:100%; padding:0.8rem; background:rgba(255,255,255,0.1); 
+                               border:1px solid var(--neon-purple); border-radius:8px; color:white;">
+                        <button type="submit" class="btn btn-redirect" style="margin-top:1rem;">
+                            <i class="fas fa-paper-plane"></i> S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="copyright">
+                <p>© 2024 Neon Promo - Tous droits réservés</p>
+                <p style="margin-top:1rem;">
+                    <i class="fas fa-certificate" style="color:var(--neon-cyan);"></i>
+                    Jeu responsable - 18 ans minimum
+                    <i class="fas fa-certificate" style="color:var(--neon-pink);"></i>
+                </p>
+            </div>
+        </footer>
+
+    <!-- Bouton Retour en Haut -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+
+
+</body>
+</html>
