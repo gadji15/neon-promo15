@@ -790,3 +790,31 @@ document.querySelectorAll('.bonus-image').forEach(img => {
     });
     observer.observe(img);
 });
+
+
+// Ajoutez ce script
+document.addEventListener('DOMContentLoaded', () => {
+    const cta = document.querySelector('.promo-cta');
+    const closeBtn = document.querySelector('.close-cta');
+  
+    // Fermeture du CTA
+    closeBtn.addEventListener('click', () => {
+      cta.style.animation = 'slideDown 0.5s ease forwards';
+      setTimeout(() => cta.remove(), 500);
+      localStorage.setItem('ctaClosed', 'true');
+    });
+  
+    // Animation de hover
+    cta.addEventListener('mouseenter', () => {
+      cta.style.transform = 'translateY(-5px) scale(1.02)';
+    });
+    
+    cta.addEventListener('mouseleave', () => {
+      cta.style.transform = 'translateY(0) scale(1)';
+    });
+  
+    // Vérifier si déjà fermé
+    if(!localStorage.getItem('ctaClosed')) {
+      setTimeout(() => cta.style.display = 'block', 3000);
+    }
+  });

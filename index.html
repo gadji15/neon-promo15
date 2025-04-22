@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
+    
     <title>Neon Promo - Paris Sportifs</title>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <!-- Utilisez la dernière version -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="script.min.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -154,6 +157,36 @@
             </article>
         </div>
     </main>
+     
+    <div class="neon-share-container">
+        <button class="share-trigger">
+          <i class="fas fa-share-nodes"></i>
+          <span>Partager</span>
+        </button>
+        
+        <div class="share-buttons">
+          <a href="#" class="share-btn facebook" data-platform="facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="share-btn twitter" data-platform="twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="#" class="share-btn telegram" data-platform="telegram">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="#" class="share-btn whatsapp" data-platform="whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <button class="share-btn link" data-platform="link">
+            <i class="fas fa-link"></i>
+          </button>
+        </div>
+        
+        <div class="share-counter">
+          <i class="fas fa-chart-line"></i>
+          <span>Déjà <span id="shareCount">217</span> partages</span>
+        </div>
+      </div>
 
     <footer class="footer">
         <div class="footer-grid">

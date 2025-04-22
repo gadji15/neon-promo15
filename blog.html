@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover">
     <title>Blog - Neon Promo</title>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <!-- Utilisez la dernière version -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="script.min.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script><!-- [Coller ici tout le CSS de index.html] -->
 </head>
@@ -196,7 +198,24 @@
         </div>
     </section>           
     </main>
-
+     <!-- Ajoutez avant le footer -->
+<div class="promo-pulse" onclick="window.location.href='#bookmakers'">
+    <div class="promo-content">
+      <div class="promo-text">
+        <span class="promo-emoji">🎰</span>
+        <div>
+          <h3>BONUS ACTIFS <span class="blink">!</span></h3>
+          <p>Cliquez pour débloquer vos codes exclusifs</p>
+        </div>
+      </div>
+      <div class="promo-codes">
+        <code>APC15</code>
+        <code>LASLES15</code>
+      </div>
+      <button class="close-promo" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="promo-glow"></div>
+  </div>
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-section">
