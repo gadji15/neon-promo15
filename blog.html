@@ -51,93 +51,150 @@
         </button>
     </div>
 </header>
-    <section class="hero">
-        <h1>Blog des Paris Sportifs</h1>
-        <p class="hero-subtitle">Conseils, Analyses et Stratégies Gagnantes</p>
-    </section>
+    <!-- Dans blog.html -->
+<section class="blog-hero">
+    <div class="blog-hero-content">
+        <h1 class="blog-main-title">
+            <span class="title-part">Blog des</span>
+            <span class="neon-flicker">Paris Sportifs</span>
+        </h1>
+        <p class="blog-subtitle">
+            Conseils, Analyses et Stratégies Gagnantes
+        </p>
+    </div>
+</section>
 
     <main class="blog-content">
         <div class="articles-grid">
             <!-- Article 1 -->
-            <article class="article-card">
-                <div class="article-media">
-                    <img src="images/strategies.jpg" alt="Stratégies">
-                    <span class="article-badge">STRATÉGIE</span>
-                </div>
-                <div class="article-content">
-                    <div class="article-meta">
-                        <time>15 Septembre 2024</time>
-                        <span>8 min</span>
-                    </div>
-                    <h3>Top 5 Stratégies Gagnantes en 2024</h3>
-                    <p>Découvrez les méthodes révolutionnaires pour maximiser vos gains avec nos analyses exclusives...</p>
-                    <a href="article1.html" class="btn-read">Lire plus <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
+          <!-- Article 1 corrigé -->
+<article class="article-card">
+    <div class="article-media article-header">
+        <img src="images/stratege.jpg" 
+             alt="Graphique stratégies paris sportifs néon" 
+             loading="lazy">
+        <span class="article-badge article-category">EXCLUSIF</span>
+    </div>
+    <div class="article-content">
+        <div class="article-meta">
+            <time datetime="2024-09-15">15 Septembre 2024</time>
+            <span><i class="fas fa-clock"></i> 8 min</span>
+        </div>
+        <h3>Top 5 Stratégies Gagnantes en 2024</h3>
+        <div class="article-excerpt rticle-body">
+            <p>Découvrez nos méthodes brevetées combinant :</p>
+            <ul class="neon-list strategy-list">
+                <li>Analyse prédictive IA</li>
+                <li>Optimisation des cotes en temps réel</li>
+                <li>Gestion de bankroll dynamique</li>
+            </ul>
+        </div>
+        <a href="article1.html" class="btn-read">
+            Débloquer les stratégies 
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</article>
 
             <!-- Article 2 -->
             <article class="article-card">
-                <div class="article-media">
-                    <img src="images/bonus.jpg" alt="Bonus">
-                    <span class="article-badge">BONUS</span>
+                <div class="article-media article-header">
+                    <img src="images/bonus.webp" 
+                         alt="Interface bonus paris sportifs lumineux" 
+                         loading="lazy">
+                    <span class="article-badge article-category">GUIDE</span>
                 </div>
                 <div class="article-content">
                     <div class="article-meta">
-                        <time>10 Septembre 2024</time>
-                        <span>6 min</span>
+                        <time datetime="2024-09-10">10 Septembre 2024</time>
+                        <span><i class="fas fa-coins"></i> 6 min</span>
                     </div>
-                    <h3>Optimiser les Bonus sans Risque</h3>
-                    <p>Notre guide complet pour exploiter au maximum les promotions des bookmakers...</p>
-                    <a href="article2.html" class="btn-read">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    <h3>Optimisation des Bonus sans Risque</h3>
+                    <div class="article-excerpt article-body">
+                        <p>Notre méthodologie premium inclut :</p>
+                        <ul class="neon-list bonus-list analysis-list">
+                            <li>Arbitrage multi-bookmakers</li>
+                            <li>Calcul de valeur attendue (EV+)</li>
+                            <li>Rotation stratégique des offres</li>
+                        </ul>
+                    </div>
+                    <a href="article2.html" class="btn-read">
+                        Maximiser vos gains 
+                        <i class="fas fa-chart-line"></i>
+                    </a>
                 </div>
             </article>
 
             <!-- Article 3 -->
             <article class="article-card">
-                <div class="article-media">
-                    <img src="images/securite.jpg" alt="Sécurité">
-                    <span class="article-badge">SÉCURITÉ</span>
+                <div class="article-media article-header">
+                    <img src="images/securite.jpg" 
+                         alt="Protection compte paris cryptage néon" 
+                         loading="lazy">
+                    <span class="article-badge article-category">ALERTE</span>
                 </div>
                 <div class="article-content">
                     <div class="article-meta">
-                        <time>5 Septembre 2024</time>
-                        <span>5 min</span>
+                        <time datetime="2024-09-05">5 Septembre 2024</time>
+                        <span><i class="fas fa-shield-alt"></i> 5 min</span>
                     </div>
                     <h3>Sécurité des Comptes en 5 Étapes</h3>
-                    <p>Protégez vos comptes de paris avec nos meilleures pratiques de cybersécurité...</p>
-                    <a href="article3.html" class="btn-read">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    <div class="article-excerpt article-body">
+                        <p>Protocoles certifiés incluant :</p>
+                        <ul class="neon-list security-list technique-list">
+                            <li>Authentification biométrique</li>
+                            <li>Chiffrement quantum-safe</li>
+                            <li>Surveillance 24h/24</li>
+                        </ul>
+                    </div>
+                    <a href="article3.html" class="btn-read">
+                        Activer la protection 
+                        <i class="fas fa-lock"></i>
+                    </a>
                 </div>
             </article>
-        </div>
 
    
 
        <!-- Dans blog.html -->
        <section class="blog-newsletter">
         <div class="newsletter-container">
-          <h2><i class="fas fa-paper-plane"></i> Restez Branché</h2>
-          <p>Recevez nos stratégies exclusives directement par email</p>
-      
-          <form id="newsletterForm" class="newsletter-form" method="POST">
-            <input 
-              type="email" 
-              name="email" 
-              id="newsletterEmail"
-              placeholder="Entrez votre email" 
-              required 
-            >
-            <button type="submit" class="btn btn-neon">
-              <span class="btn-text">S'abonner</span>
-              <div class="loading-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
-            </button>
-            <div class="form-message" aria-live="assertive"></div>
-          </form>
+            <div class="newsletter-header">
+                <h2 class="neon-heading">
+                    <span class="neon-flicker">🔒</span> Restez Branché
+                    <span class="neon-flicker">⚡</span>
+                </h2>
+                <p class="newsletter-subtitle">Accédez à nos stratégiques premium par flux crypté</p>
+            </div>
+    
+            <form id="newsletterForm" class="newsletter-form" method="POST">
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="newsletterEmail"
+                        placeholder="Adresse cryptographique"
+                        required
+                        class="neon-input"
+                    >
+                    <i class="fas fa-envelope neon-cyan"></i>
+                </div>
+                
+                <button type="submit" class="btn-neon-pulse">
+                    <span class="btn-text">Activer l'accès</span>
+                    <div class="btn-overlay"></div>
+                    <i class="fas fa-terminal"></i>
+                </button>
+                
+                <div class="form-message" aria-live="assertive"></div>
+            </form>
+            
+            <div class="newsletter-glows">
+                <div class="glow purple"></div>
+                <div class="glow cyan"></div>
+            </div>
         </div>
-      </section>           
+    </section>           
     </main>
 
     <footer class="footer">

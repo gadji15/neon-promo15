@@ -594,8 +594,64 @@ document.addEventListener('click', (e) => {
 
 
 
+// Corrigez le script existant
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+  
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('active');
+      mobileBtn.classList.toggle('active');
+    });
+  
+    // Fermer en cliquant hors du menu
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+        mainNav.classList.remove('active');
+        mobileBtn.classList.remove('active');
+      }
+    });
+  });
+
+  document.querySelectorAll('.neon-flicker').forEach(el => {
+    setInterval(() => {
+        el.style.opacity = Math.random().toFixed(1);
+    }, 100);
+});
+
+document.querySelectorAll('.article-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+});
 
 
+// Animation au survol des champs
+document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        el.parentNode.querySelector('i').style.color = 'var(--neon-cyan)';
+    });
+    
+    el.addEventListener('mouseleave', () => {
+        el.parentNode.querySelector('i').style.color = 'var(--neon-pink)';
+    });
+});
+
+// Effet de validation du formulaire
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    
+    form.classList.add('submitting');
+    setTimeout(() => {
+        form.classList.remove('submitting');
+        showNotification('🎉 Message envoyé avec succès !');
+        form.reset();
+    }, 2000);
+});
 
 
 
