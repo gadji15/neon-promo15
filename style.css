@@ -3531,6 +3531,90 @@ input, select, textarea {
 .main-header {
     height: 60px !important; /* Fixe la hauteur */
   }
+
+/* === WOW EFFECTS === */
+
+/* 1. Particle Background */
+.wow-particles-bg {
+    position: fixed !important;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* 2. Custom Cursor + Follower */
+.wow-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--neon-purple, #bc13fe);
+    box-shadow: 0 0 8px 2px var(--neon-purple, #bc13fe);
+    z-index: 10000;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: background 0.2s;
+    will-change: transform;
+    opacity: 1;
+}
+.wow-cursor-halo {
+    position: fixed;
+    top: 0; left: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--neon-purple, #bc13fe);
+    box-shadow: 0 0 24px 8px var(--neon-purple, #bc13fe);
+    opacity: 0.38;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: background 0.25s, box-shadow 0.25s, filter 0.3s, transform 0.18s cubic-bezier(.33,1,.68,1);
+    will-change: transform;
+}
+.wow-cursor-halo-active {
+    width: 45px !important;
+    height: 45px !important;
+    box-shadow: 0 0 40px 10px var(--neon-purple, #bc13fe);
+    opacity: 0.5;
+    filter: blur(0.5px) brightness(1.2);
+    transition: width 0.25s, height 0.25s, box-shadow 0.2s, filter 0.2s;
+}
+
+/* Hide cursor on mobile / coarse pointer / small screen */
+@media (max-width: 767px), (pointer: coarse) {
+    .wow-cursor, .wow-cursor-halo { display: none !important; }
+}
+
+/* 3. Magnetic Buttons: no extra CSS required, handled by transform JS */
+
+/* 4. Scroll Reveal Animations */
+.reveal-from-bottom, .reveal-fade {
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+.reveal-from-bottom {
+    transform: translateY(40px) scale(0.97);
+    transition: opacity 0.8s cubic-bezier(.33,1,.68,1), transform 0.8s cubic-bezier(.33,1,.68,1);
+}
+.reveal-fade {
+    transform: scale(0.95);
+    transition: opacity 0.8s cubic-bezier(.33,1,.68,1), transform 0.8s cubic-bezier(.33,1,.68,1);
+}
+.revealed {
+    opacity: 1 !important;
+    pointer-events: auto;
+    transform: none !important;
+}
+
+/* prefers-reduced-motion: disables transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-from-bottom, .reveal-fade, .revealed,
+    .wow-cursor, .wow-cursor-halo, .wow-particles-bg {
+        transition-duration: 0s !important;
+        animation-duration: 0s !important;
+    }
+}
   
   .header-content {
     padding: 0 15px !important;

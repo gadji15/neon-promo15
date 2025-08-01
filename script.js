@@ -818,3 +818,191 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => cta.style.display = 'block', 3000);
     }
   });
+
+
+// ===========================
+//      WOW EFFECTS (IIFE)
+// ===========================
+(function() {
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ========== 1. PARTICLE BACKGROUND ==========
+    const PARTICLE_COUNT = 900;
+    const colors = [
+        getComputedStyle(document.documentElement).getPropertyValue('--neon-cyan').trim() || '#00f3ff',
+        getComputedStyle(document.documentElement).getPropertyValue('--neon-pink').trim() || '#ff00ff'
+    ];
+
+    let particleCanvas, ctx, particles = [], w, h, dpr;
+    function resizeParticles() {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        dpr = window.devicePixelRatio || 1;
+        particleCanvas.width = w * dpr;
+        particleCanvas.height = h * dpr;
+        particleCanvas.style.width = w + 'px';
+        particleCanvas.style.height = h + 'px';
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+    }
+    function randomColor() {
+        return colors[Math.floor(Math.random()*colors.length)];
+    }
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            const angle = Math.random() * 2*Math.PI;
+            const speed = 0.15 + Math.random() * 0.25;
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: 1 + Math.random(),
+                color: randomColor(),
+                alpha: 0.12 + Math.random()*0.17,
+                dx: Math.cos(angle) * speed,
+                dy: Math.sin(angle) * speed
+            });
+        }
+    }
+    function animateParticles() {
+        if (prefersReducedMotion) return;
+        ctx.clearRect(0,0,w,h);
+        for (let i=0; i<particles.length; i++) {
+            const p = particles[i];
+            ctx.globalAlpha = p.alpha;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
+            ctx.fillStyle = p.color;
+            ctx.shadowColor = p.color;
+            ctx.shadowBlur = 8 + Math.random()*8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            p.x += p.dx;
+            p.y += p.dy;
+            // Recycle out-of-bounds
+            if (p.x < -10 || p.x > w+10 || p.y < -10 || p.y > h+10) {
+                p.x = Math.random()*w;
+                p.y = Math.random()*h;
+            }
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(animateParticles);
+    }
+    if (!prefersReducedMotion) {
+        particleCanvas = document.createElement('canvas');
+        particleCanvas.className = 'wow-particles-bg';
+        particleCanvas.style.position = 'fixed';
+        particleCanvas.style.left = '0'; particleCanvas.style.top = '0'; particleCanvas.style.width = '100vw'; particleCanvas.style.height = '100vh';
+        particleCanvas.style.zIndex = '-2';
+        particleCanvas.style.pointerEvents = 'none';
+        document.body.appendChild(particleCanvas);
+        ctx = particleCanvas.getContext('2d');
+        resizeParticles();
+        createParticles();
+        animateParticles();
+        window.addEventListener('resize', () => {
+            resizeParticles();
+            createParticles();
+        });
+    }
+
+    // ========== 2. CUSTOM CURSOR + FOLLOWER ==========
+    const showCursor = !prefersReducedMotion &&
+        window.matchMedia('(pointer: fine)').matches &&
+        window.innerWidth >= 768;
+
+    let cursor, cursorHalo;
+    if (showCursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'wow-cursor';
+        cursorHalo = document.createElement('div');
+        cursorHalo.className = 'wow-cursor-halo';
+        document.body.appendChild(cursor);
+        document.body.appendChild(cursorHalo);
+
+        let mouseX = 0, mouseY = 0, haloX = 0, haloY = 0;
+        function moveCursor(e) {
+            mouseX = e.clientX; mouseY = e.clientY;
+            cursor.style.transform = `translate(${mouseX-2}px,${mouseY-2}px)`;
+        }
+        function animateHalo() {
+            if (prefersReducedMotion) return;
+            haloX += (mouseX - haloX) * 0.18;
+            haloY += (mouseY - haloY) * 0.18;
+            cursorHalo.style.transform = `translate(${haloX-15}px,${haloY-15}px)`;
+            requestAnimationFrame(animateHalo);
+        }
+        window.addEventListener('mousemove', moveCursor);
+        animateHalo();
+
+        // Highlight on interactive
+        const targets = [
+            'a', 'button', '.btn', '.btn-redirect', '.odds-tracker-button', '.nav-link'
+        ];
+        document.body.addEventListener('mouseover', e => {
+            if (targets.some(sel => e.target.closest(sel))) {
+                cursorHalo.classList.add('wow-cursor-halo-active');
+            }
+        });
+        document.body.addEventListener('mouseout', e => {
+            if (targets.some(sel => e.target.closest(sel))) {
+                cursorHalo.classList.remove('wow-cursor-halo-active');
+            }
+        });
+        // Hide on scroll (optional): window.addEventListener('scroll', ()=>{cursor.style.opacity=cursorHalo.style.opacity='0';});
+    }
+
+    // ========== 3. MAGNETIC BUTTONS ==========
+    if (showCursor) {
+        const magnetics = Array.from(document.querySelectorAll('.btn, .btn-redirect, .odds-tracker-button'));
+        magnetics.forEach(el => {
+            let hovering = false, animId = null;
+            el.style.transition = 'transform 0.3s cubic-bezier(.33,1,.68,1)';
+            el.addEventListener('mousemove', function(e) {
+                if (!hovering) {
+                    hovering = true;
+                }
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width/2;
+                const y = e.clientY - rect.top - rect.height/2;
+                el.style.transform = `translate(${x*0.18}px,${y*0.18}px)`;
+            });
+            el.addEventListener('mouseleave', function() {
+                el.style.transform = '';
+                hovering = false;
+            });
+        });
+    }
+
+    // ========== 4. SCROLL-REVEAL ==========
+    // CSS: .reveal-from-bottom, .reveal-fade (opacity 0, transform), .revealed (opacity 1, transform none)
+    const revealElements = document.querySelectorAll('.reveal-from-bottom, .reveal-fade');
+    if (revealElements.length) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.13 });
+        revealElements.forEach(el => observer.observe(el));
+    }
+
+    // ========== 5. ACCESSIBILITY/REDUCED MOTION ==========
+    if (prefersReducedMotion) {
+        // Remove any transitions/animations for all .revealed
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .revealed, .wow-cursor, .wow-cursor-halo, .wow-particles-bg, 
+            .btn, .btn-redirect, .odds-tracker-button, 
+            .reveal-from-bottom, .reveal-fade {
+                transition-duration: 0s !important;
+                animation-duration: 0s !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+})();
