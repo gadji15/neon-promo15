@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap');
+
+/* === DESIGN TOKENS (CSS VARIABLES) === */
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-purple: #bc13fe;
+  --dark-bg: #0a0a0f;
+  --card-bg: #13131f;
+  --transition: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+/* Tailwind base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom global styles from style.css (copied as-is for now) === */

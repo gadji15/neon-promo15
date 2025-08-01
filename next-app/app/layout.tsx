@@ -1,0 +1,15 @@
+export const metadata = {
+  title: 'Neon Promo',
+  description: 'Électrisez vos gains avec nos offres exclusives !',
+  // TODO: Add favicon, og:image, more meta
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr">
+      <body className="font-oxanium bg-[var(--dark-bg)] text-white">
+        {children}
+      </body>
+    </html>
+  );
+}
