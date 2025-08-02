@@ -1,67 +1,97 @@
 "use client";
 import Link from "next/link";
 
+const socials = [
+  {
+    href: "https://t.me/cgparis",
+    icon: <i className="fab fa-telegram"></i>,
+    label: "Telegram",
+  },
+  {
+    href: "https://www.facebook.com/groups/878539870417684/",
+    icon: <i className="fab fa-facebook"></i>,
+    label: "Facebook",
+  },
+  {
+    href: "https://www.threads.net/@sunugain",
+    icon: <i className="fab fa-threads"></i>,
+    label: "Threads",
+  },
+  {
+    href: "https://twitter.com",
+    icon: <i className="fab fa-twitter"></i>,
+    label: "Twitter",
+  },
+];
+
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-grid">
-        <div className="footer-section">
-          <h4>Réseaux Sociaux</h4>
-          <div className="social-links">
-            <a href="https://t.me/cgparis" className="social-link" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-telegram"></i>
-            </a>
-            <a href="https://www.facebook.com/groups/878539870417684/" className="social-link" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.threads.net/@sunugain" className="social-link" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-threads"></i>
-            </a>
-            <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
+    <footer className="border-t border-[var(--neon-purple)]/40 mt-24 bg-[#0a0a0f] pt-16 pb-8 text-sm">
+      <div className="max-w-7xl mx-auto grid gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Réseaux Sociaux */}
+        <div>
+          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Réseaux Sociaux</h4>
+          <ul className="flex gap-4">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="size-10 flex items-center justify-center rounded-full border border-[var(--neon-cyan)]/40 hover:bg-[var(--neon-pink)] hover:text-black transition shadow-lg text-xl"
+                >
+                  {s.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="footer-section">
-          <h4>Informations</h4>
-          <ul className="footer-links">
+        {/* Informations */}
+        <div>
+          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Informations</h4>
+          <ul className="space-y-2">
             <li>
-              <Link href="/conditions" className="">{`Conditions d'utilisation`}</Link>
+              <Link href="/conditions" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">{`Conditions d'utilisation`}</Link>
             </li>
             <li>
-              <Link href="/confidentialite" className="">Confidentialité</Link>
+              <Link href="/confidentialite" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">Confidentialité</Link>
             </li>
             <li>
-              <Link href="/apropos" className="">À propos</Link>
+              <Link href="/apropos" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">À propos</Link>
             </li>
             <li>
-              <Link href="/blog" className="">Blog</Link>
+              <Link href="/blog" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">Blog</Link>
             </li>
             <li>
-              <Link href="/contact" className="">Contact</Link>
+              <Link href="/contact" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">Contact</Link>
             </li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>Contact</h4>
-          <ul className="footer-links">
+        {/* Contact */}
+        <div>
+          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Contact</h4>
+          <ul className="space-y-2">
             <li>
-              <a href="mailto:sunumarketing221@gmail.com">
+              <a href="mailto:sunumarketing221@gmail.com" className="flex items-center gap-2 text-white/80 hover:text-[var(--neon-cyan)] transition">
                 <i className="fas fa-envelope"></i> sunumarketing221@gmail.com
               </a>
             </li>
             <li>
-              <a href="tel:+221766304380">
+              <a href="tel:+221766304380" className="flex items-center gap-2 text-white/80 hover:text-[var(--neon-cyan)] transition">
                 <i className="fas fa-phone"></i> +221 76 630 43 80
               </a>
             </li>
             <li>
-              <i className="fas fa-map-marker-alt"></i> Paris, France
+              <span className="flex items-center gap-2">
+                <i className="fas fa-map-marker-alt"></i> Paris, France
+              </span>
             </li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>Newsletter</h4>
+        {/* Newsletter */}
+        <div>
+          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Newsletter</h4>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -72,27 +102,26 @@ export function Footer() {
               type="email"
               placeholder="Votre email"
               required
-              style={{
-                width: "100%",
-                padding: "0.8rem",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid var(--neon-purple)",
-                borderRadius: "8px",
-                color: "white",
-              }}
+              className="bg-white/10 px-4 py-2 rounded-md border border-[var(--neon-purple)] focus:ring-2 focus:ring-[var(--neon-cyan)] w-full text-white"
             />
-            <button type="submit" className="btn btn-redirect" style={{ marginTop: "1rem" }}>
-              <i className="fas fa-paper-plane"></i> S&apos;abonner
+            <button
+              type="submit"
+              className="bg-[var(--neon-cyan)] text-black font-semibold rounded-md w-full py-2 mt-3 hover:bg-[var(--neon-pink)] transition"
+            >
+              <i className="fas fa-paper-plane mr-2"></i>
+              S&apos;abonner
             </button>
           </form>
         </div>
       </div>
-      <div className="copyright">
-        <p>© 2024 Neon Promo - Tous droits réservés</p>
-        <p style={{ marginTop: "1rem" }}>
-          <i className="fas fa-certificate" style={{ color: "var(--neon-cyan)" }}></i>
-          Jeu responsable - 18 ans minimum
-          <i className="fas fa-certificate" style={{ color: "var(--neon-pink)" }}></i>
+      <div className="mt-12 text-center text-white/60 text-xs">
+        <p>
+          © {new Date().getFullYear()} Neon Promo – Tous droits réservés
+        </p>
+        <p className="mt-2">
+          <i className="fas fa-certificate text-[var(--neon-cyan)]"></i>
+          <span className="mx-2">Jeu responsable - 18 ans minimum</span>
+          <i className="fas fa-certificate text-[var(--neon-pink)]"></i>
         </p>
       </div>
     </footer>
