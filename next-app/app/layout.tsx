@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 import { ToastProvider } from "../components/ToastProvider";
 
 export const metadata = {
