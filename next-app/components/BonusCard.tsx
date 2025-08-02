@@ -1,14 +1,14 @@
 import React from "react";
 import type { Bonus } from "../types/bonus";
+import useCopyClipboard from "../hooks/useCopyClipboard";
 
 export function BonusCard({ bonus }: { bonus: Bonus }) {
+  const copy = useCopyClipboard();
+
   function handleCopy() {
-    if (navigator?.clipboard) {
-      navigator.clipboard.writeText(bonus.code);
-      alert(`🔥 Code ${bonus.code} copié !`);
-      // TODO: replace with toast
-    }
+    copy(bonus.code);
   }
+
   return (
     <article className="bonus-card flex flex-col items-center bg-[var(--card-bg)] rounded-[15px] p-8 relative overflow-hidden transition border border-transparent hover:translate-y-[-10px] hover:shadow-lg hover:border-[var(--neon-purple)]">
       <img

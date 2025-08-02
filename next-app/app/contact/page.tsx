@@ -1,13 +1,14 @@
 "use client";
 import { SectionWrapper } from "../../components/SectionWrapper";
 import { useRef } from "react";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert("Merci pour votre message ! Nous vous répondrons rapidement.");
+    toast.success("Merci pour votre message ! Nous vous répondrons rapidement.");
     formRef.current?.reset();
   }
 

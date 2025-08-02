@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { ToastProvider } from "../components/ToastProvider";
 
 export const metadata = {
   title: 'Neon Promo',
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="loader-spinner"></div>
         </div>
         <Header />
-        {children}
+        <ToastProvider>
+          {children}
+        </ToastProvider>
         <Footer />
       </body>
     </html>
