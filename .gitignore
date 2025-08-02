@@ -1,0 +1,23 @@
+# Node & pnpm
+node_modules/
+.pnpm/
+**/node_modules/
+.next/
+.next/cache/
+
+# Env & logs
+.env*
+.npm*
+*.log
+
+# Editor / OS
+.DS_Store
+.vscode/
+
+# Build output
+out/
+dist/
+
+# Videos larger handled via LFS optional
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+Thumbs.db
