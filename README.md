@@ -33,6 +33,20 @@ npm start
 
 ---
 
+## Environnements & API
+
+Pour activer l’API cotes live, créez un fichier `.env.local` dans `next-app/` :
+
+```env
+ODDS_API_KEY=VOTRE_CLÉ_THE_ODDS_API
+```
+
+- Clé gratuite : https://the-odds-api.com/
+- Limites : 500 requêtes/mois en gratuit, max 60/min.
+- Voir [API route](app/api/odds/route.ts) pour détails ; rafraîchissement toutes les 30 secondes.
+
+---
+
 ## Structure principale
 
 ```

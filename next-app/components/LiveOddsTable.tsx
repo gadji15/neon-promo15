@@ -2,10 +2,10 @@
 import React, { useRef } from "react";
 import useLiveOdds, { OddsRow } from "../hooks/useLiveOdds";
 
-const bookmakers = ["Betwinner", "Melbet", "Sunubet"];
-
 export function LiveOddsTable() {
-  const odds = useLiveOdds();
+  const { rows: odds, isLoading, error } = useLiveOdds();
+  const bookmakers =
+    odds[0] ? Object.keys(odds[0].values) : ["Bookmaker1", "Bookmaker2", "Bookmaker3"];
   // Keep previous values for arrow indication
   const prevRef = useRef<OddsRow[] | null>(null);
   const prev = prevRef.current;
@@ -23,31 +23,52 @@ export function LiveOddsTable() {
           </tr>
         </thead>
         <tbody>
-          {odds.map((row, i) => (
-            <tr key={row.match} className="transition">
-              <td className="px-4 py-3 font-semibold text-white">{row.match}</td>
-              {bookmakers.map((bk) => {
-                let arrow = "";
-                let up = false, down = false;
-                const val = row.values[bk];
-                const pval = prev?.[i]?.values?.[bk];
-                if (pval !== undefined) {
-                  if (val > pval) { arrow = "🔺"; up = true; }
-                  else if (val < pval) { arrow = "🔻"; down = true; }
-                }
-                return (
-                  <td key={bk} className="px-4 py-3 text-center text-[var(--neon-cyan)] font-mono">
-                    {val.toFixed(2)}{" "}
-                    {arrow && (
-                      <span className={up ? "odds-arrow-up" : down ? "odds-arrow-down" : ""}>
-                        {arrow}
-                      </span>
-                    )}
+          {isLoading ? (
+            [...Array(3)].map((_, i) => (
+              <tr key={i} className="animate-pulse">
+                <td className="px-4 py-3">
+                  <div className="h-4 bg-white/10 rounded w-2/3" />
+                </td>
+                {bookmakers.map((bk) => (
+                  <td key={bk} className="px-4 py-3">
+                    <div className="h-4 bg-white/10 rounded w-4/5 mx-auto" />
                   </td>
-                );
-              })}
+                ))}
+              </tr>
+            ))
+          ) : error ? (
+            <tr>
+              <td colSpan={bookmakers.length + 1} className="text-red-400 text-center py-6">
+                Erreur de chargement des cotes.
+              </td>
             </tr>
-          ))}
+          ) : (
+            odds.map((row, i) => (
+              <tr key={row.match} className="transition">
+                <td className="px-4 py-3 font-semibold text-white">{row.match}</td>
+                {bookmakers.map((bk) => {
+                  let arrow = "";
+                  let up = false, down = false;
+                  const val = row.values[bk];
+                  const pval = prev?.[i]?.values?.[bk];
+                  if (pval !== undefined) {
+                    if (val > pval) { arrow = "🔺"; up = true; }
+                    else if (val < pval) { arrow = "🔻"; down = true; }
+                  }
+                  return (
+                    <td key={bk} className="px-4 py-3 text-center text-[var(--neon-cyan)] font-mono">
+                      {typeof val === "number" ? val.toFixed(2) : "--"}
+                      {arrow && (
+                        <span className={up ? "odds-arrow-up" : down ? "odds-arrow-down" : ""}>
+                          {arrow}
+                        </span>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
