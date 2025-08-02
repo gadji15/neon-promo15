@@ -365,6 +365,9 @@ html {
   margin-left: 2px;
 }
 
+@keyframes gradientMove{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+.bg-gradient-move{background-size:200% 200%;animation:gradientMove 18s ease-in-out infinite;}
+
 /********  NAV GLOW UNDERLINE ******/
 .nav-glow {
   position: relative;

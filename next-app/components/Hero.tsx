@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { CountUpStat } from "./CountUpStat";
 
 export function Hero({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <section
-      className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left h-[60vh] md:h-[50vh] px-4 overflow-hidden bg-gradient-to-br from-[var(--neon-purple)] to-[var(--neon-pink)]"
+      className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left h-[60vh] md:h-[50vh] px-4 overflow-hidden bg-gradient-move bg-gradient-to-br from-[var(--neon-purple)] to-[var(--neon-pink)]"
     >
       {/* Decorative SVG blob */}
       <svg
@@ -29,6 +30,10 @@ export function Hero({ title, subtitle }: { title: string; subtitle: string }) {
         <p className="hero-subtitle text-lg md:text-2xl text-white/90 mb-8">
           {subtitle}
         </p>
+        <div className="flex flex-col md:flex-row gap-10 mb-8">
+          <CountUpStat end={500000} suffix="€" label="Bonus distribués" />
+          <CountUpStat end={12000} suffix="+" label="Parieurs" />
+        </div>
         <Link
           href="#bonus"
           scroll={false}
