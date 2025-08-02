@@ -218,10 +218,14 @@
 .bonus-grid {
   display: grid;
   gap: 2rem;
-  padding: 4rem 1.5rem;
+  /* Removed all margin and negative margin overrides for cleaner spacing */
+  /*padding: 4rem 1.5rem;
   max-width: 1400px;
   margin: -8rem auto 0;
-  margin-top: 25px;
+  margin-top: 25px;*/
+}
+html {
+  scroll-behavior: smooth;
 }
 .bonus-card {
   background: var(--card-bg);
