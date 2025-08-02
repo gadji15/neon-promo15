@@ -26,11 +26,22 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--neon-purple)]/40 mt-24 bg-[#0a0a0f] pt-16 pb-8 text-sm">
-      <div className="max-w-7xl mx-auto grid gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative border-t border-[var(--neon-purple)]/40 mt-24 bg-[#0a0a0f] pt-16 pb-8 text-sm overflow-hidden">
+      {/* Animated gradient bar */}
+      <div className="h-1 w-full bg-gradient-to-r from-[var(--neon-cyan)] via-[var(--neon-purple)] to-[var(--neon-pink)] animate-gradient-x mb-10" />
+      {/* Diagonal noise overlay */}
+      <div className="pointer-events-none absolute inset-0 z-0" style={{
+        background: "url('/noise.svg')",
+        opacity: 0.05,
+        mixBlendMode: "soft-light"
+      }} aria-hidden />
+      <div className="relative z-10 max-w-7xl mx-auto grid gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4">
         {/* Réseaux Sociaux */}
         <div>
-          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Réseaux Sociaux</h4>
+          <h4 className="relative text-[var(--neon-cyan)] font-semibold mb-4 pl-3">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded bg-[var(--neon-pink)] shadow-neon"></span>
+            Réseaux Sociaux
+          </h4>
           <ul className="flex gap-4">
             {socials.map((s) => (
               <li key={s.label}>
@@ -39,7 +50,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="size-10 flex items-center justify-center rounded-full border border-[var(--neon-cyan)]/40 hover:bg-[var(--neon-pink)] hover:text-black transition shadow-lg text-xl"
+                  className="size-11 flex items-center justify-center rounded-full bg-gradient-to-br from-[var(--neon-purple)] to-[var(--neon-pink)] text-xl text-white shadow-neon ring-1 ring-[var(--neon-cyan)]/40 transition transform hover:scale-110 hover:rotate-12"
                 >
                   {s.icon}
                 </a>
@@ -49,7 +60,10 @@ export function Footer() {
         </div>
         {/* Informations */}
         <div>
-          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Informations</h4>
+          <h4 className="relative text-[var(--neon-cyan)] font-semibold mb-4 pl-3">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded bg-[var(--neon-pink)] shadow-neon"></span>
+            Informations
+          </h4>
           <ul className="space-y-2">
             <li>
               <Link href="/conditions" className="nav-glow text-white/80 hover:text-[var(--neon-cyan)] underline-offset-4 transition">{`Conditions d'utilisation`}</Link>
@@ -70,7 +84,10 @@ export function Footer() {
         </div>
         {/* Contact */}
         <div>
-          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Contact</h4>
+          <h4 className="relative text-[var(--neon-cyan)] font-semibold mb-4 pl-3">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded bg-[var(--neon-pink)] shadow-neon"></span>
+            Contact
+          </h4>
           <ul className="space-y-2">
             <li>
               <a href="mailto:sunumarketing221@gmail.com" className="flex items-center gap-2 text-white/80 hover:text-[var(--neon-cyan)] transition">
@@ -91,7 +108,10 @@ export function Footer() {
         </div>
         {/* Newsletter */}
         <div>
-          <h4 className="text-[var(--neon-cyan)] font-semibold mb-4">Newsletter</h4>
+          <h4 className="relative text-[var(--neon-cyan)] font-semibold mb-4 pl-3">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded bg-[var(--neon-pink)] shadow-neon"></span>
+            Newsletter
+          </h4>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -114,7 +134,7 @@ export function Footer() {
           </form>
         </div>
       </div>
-      <div className="mt-12 text-center text-white/60 text-xs">
+      <div className="mt-12 text-center text-white/60 text-xs relative z-10">
         <p>
           © {new Date().getFullYear()} Neon Promo – Tous droits réservés
         </p>

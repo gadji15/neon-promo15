@@ -378,3 +378,20 @@
 .nav-glow:hover::after {
   width: 100%;
 }
+
+/********  NEON SHADOWS & ANIMATIONS ******/
+.shadow-neon {
+  box-shadow: 0 0 12px var(--neon-cyan);
+}
+@keyframes gradient-x {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+.animate-gradient-x {
+  background-size: 200% 100%;
+  animation: gradient-x 6s linear infinite;
+}
