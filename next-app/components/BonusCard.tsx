@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import type { Bonus } from "../types/bonus";
 import useCopyClipboard from "../hooks/useCopyClipboard";
