@@ -1,5 +1,7 @@
 import { Hero } from "../components/Hero";
 import { BonusGrid } from "../components/BonusGrid";
+import { PartnerSlider } from "../components/PartnerSlider";
+import { BlogHighlight } from "../components/BlogHighlight";
 import Link from "next/link";
 
 function InlineOddsButton() {
@@ -24,6 +26,8 @@ export default function HomePage() {
       />
       <InlineOddsButton />
       <BonusGrid />
+      <PartnerSlider />
+      <BlogHighlight />
     </main>
   );
 }

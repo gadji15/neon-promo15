@@ -402,3 +402,8 @@ html {
   background-size: 200% 100%;
   animation: gradient-x 6s linear infinite;
 }
+
+/* Embla slider opacity and card hover */
+.embla__container > * { opacity: 0.8; transition: opacity .2s }
+.embla__container > *:hover { opacity: 1 }
+.snap-center { scroll-snap-align: center }
