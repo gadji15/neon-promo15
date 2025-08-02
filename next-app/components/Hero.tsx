@@ -5,7 +5,7 @@ import { CountUpStat } from "./CountUpStat";
 export function Hero({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <section
-      className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left h-[60vh] md:h-[50vh] px-4 overflow-hidden bg-gradient-move bg-gradient-to-br from-[var(--neon-purple)] to-[var(--neon-pink)]"
+      className="relative flex flex-col md:flex-row justify-center text-center md:text-left h-[60vh] md:h-[50vh] px-6 md:px-10 overflow-hidden bg-gradient-move bg-gradient-to-br from-[var(--neon-purple)] to-[var(--neon-pink)]"
     >
       {/* Decorative SVG blob */}
       <svg
@@ -23,8 +23,8 @@ export function Hero({ title, subtitle }: { title: string; subtitle: string }) {
         </defs>
         <ellipse cx="200" cy="200" rx="170" ry="150" fill="url(#blobGrad)" />
       </svg>
-      <div className="z-10 flex-1 flex flex-col items-center md:items-start">
-        <h1 className="hero-title text-3xl md:text-5xl lg:text-6xl font-bold uppercase mb-4 bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-pink)] bg-clip-text text-transparent text-shadow-neon drop-shadow">
+      <div className="z-10 md:max-w-xl w-full px-4 flex flex-col">
+        <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight break-words uppercase mb-4 bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-pink)] bg-clip-text text-transparent text-shadow-neon drop-shadow">
           {title}
         </h1>
         <p className="hero-subtitle text-lg md:text-2xl text-white/90 mb-8">
