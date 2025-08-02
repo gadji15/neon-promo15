@@ -339,3 +339,13 @@
   0% { left: -100%; }
   100% { left: 100%; }
 }
+
+/* ODDS legacy */
+.odds-table tr:hover {
+  background: rgba(0,243,255,0.09);
+  transition: background 0.25s;
+}
+.odds-table th,
+.odds-table td {
+  border-bottom: 1px solid var(--neon-purple);
+}
