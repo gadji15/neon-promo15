@@ -1,11 +1,13 @@
 import { OddsHero } from "../../components/OddsHero";
-import { OddsTable } from "../../components/OddsTable";
+import { LiveOddsTable } from "../../components/LiveOddsTable";
+import { OddsChart } from "../../components/OddsChart";
 
 export default function OddsTrackerPage() {
   return (
     <main>
       <OddsHero />
-      <OddsTable />
+      <LiveOddsTable />
+      <OddsChart />
     </main>
   );
 }

@@ -349,3 +349,14 @@
 .odds-table td {
   border-bottom: 1px solid var(--neon-purple);
 }
+
+.odds-arrow-up {
+  color: #16e0a0;
+  font-size: 1.1em;
+  margin-left: 2px;
+}
+.odds-arrow-down {
+  color: #ff3c7d;
+  font-size: 1.1em;
+  margin-left: 2px;
+}
