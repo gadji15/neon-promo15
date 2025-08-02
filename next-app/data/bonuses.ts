@@ -7,6 +7,7 @@ export const bonuses: Bonus[] = [
     description: "200% de bonus sur premier dépôt",
     code: "APC15",
     img: "/images/xbet.jpg",
+    media: "/images/xbet.mp4",
     link: "https://refpa7921972.top/L?tag=d_2987781m_1573c_&site=2987781&ad=1573"
   },
   {

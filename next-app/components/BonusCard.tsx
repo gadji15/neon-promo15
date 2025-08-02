@@ -12,12 +12,24 @@ export function BonusCard({ bonus }: { bonus: Bonus }) {
 
   return (
     <article className="bonus-card flex flex-col items-center bg-[var(--card-bg)] rounded-[15px] p-8 relative overflow-hidden transition border border-transparent hover:translate-y-[-10px] hover:shadow-lg hover:border-[var(--neon-purple)]">
-      <img
-        src={bonus.img}
-        alt={bonus.name}
-        className="bonus-image w-full h-[180px] object-contain drop-shadow-[0_0_10px_var(--neon-cyan)] mb-6 rounded"
-        loading="lazy"
-      />
+      {bonus.media && bonus.media.endsWith('.mp4') ? (
+        <video
+          src={bonus.media}
+          poster={bonus.img}
+          className="bonus-image w-full h-[180px] object-contain drop-shadow-[0_0_10px_var(--neon-cyan)] mb-6 rounded"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      ) : (
+        <img
+          src={bonus.img}
+          alt={bonus.name}
+          className="bonus-image w-full h-[180px] object-contain drop-shadow-[0_0_10px_var(--neon-cyan)] mb-6 rounded"
+          loading="lazy"
+        />
+      )}
       <div className="bonus-content flex-1 flex flex-col items-center w-full">
         <h3 className="text-2xl font-semibold text-[var(--neon-pink)] mb-2">{bonus.name}</h3>
         <p className="text-white/90 mb-4 text-center">{bonus.description}</p>

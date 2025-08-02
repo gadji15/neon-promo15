@@ -5,4 +5,5 @@ export interface Bonus {
   code: string;
   img: string;
   link: string;
+  media?: string; // Optional video or other media (e.g. mp4)
 }
